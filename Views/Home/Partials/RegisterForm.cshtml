@@ -1,0 +1,34 @@
+@model loginregister.Models.User
+
+
+<div>
+    <h1>Register</h1>
+    <form asp-controller="Home" asp-action="Register" method="post" class="form-inline">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name">Name:</label>
+        
+        <input asp-for="Name" />
+        <br><br>
+        <span asp-validation-for="Alias"></span>
+        <label asp-for="Alias">Alias:</label>
+        
+        <input asp-for="Alias" />
+        <br><br>
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email">Email:</label>
+        
+        <input asp-for="Email" />
+        <br><br>
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password">Password:</label>
+        
+        <input asp-for="Password" />
+        <br><br>
+        <span asp-validation-for="ConfirmPassword"></span>
+        <label asp-for="ConfirmPassword">Confirm PW:</label>
+        
+        <input asp-for="ConfirmPassword" />
+        <br><br>
+        <br><button type="submit" class="btn btn-success">Register</button>
+    </form>
+</div>

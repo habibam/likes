@@ -1,0 +1,57 @@
+<div style="float:right;">
+        <a href="/logout">
+    
+                Logout
+            
+        </a>
+    </div>
+
+    <div style="float:right;">
+            <a href="/bright_ideas">
+        
+                    Bright Ideas
+                
+            </a>
+        </div>
+
+@foreach (var c in @ViewBag.UsersperLike)
+{
+    <a href="/users/@c.CreatedById">@c.CreatedBy.Name</a> <p>says:</p>
+}
+
+@foreach (var c in @ViewBag.UsersperLike)
+{
+    says: <p>@c.IdeaText</p>
+}
+
+
+<table>
+    <tr>
+        <th>People who liked this post:</th>
+        
+    </tr>
+
+    <tr>
+        <th>Alias</th>
+        <th>Name</th>
+    </tr>
+
+    
+@foreach (var c in @ViewBag.UsersperLike)
+{
+  
+        @foreach(var w in @c.Likes)
+        {
+            <tr>
+                <td>
+                <a href="/users/@w.User.UserId">@w.User.Alias</a>
+                </td>
+                <td>
+                <a href="/users/@w.User.UserId">@w.User.Name</a>
+                </td>
+            </tr>
+        }
+        
+    
+}
+</table>

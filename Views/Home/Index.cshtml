@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welcome!</h1>
+<div class="a">
+<h4>@ViewBag.Success</h4>
+@Html.Partial("./Partials/RegisterForm")
+</div>
+
+<div class="a">
+<br>
+@ViewBag.loginerror
+@Html.Partial("./Partials/LoginForm")
+<br>
+
+</div>
+
+
+
+

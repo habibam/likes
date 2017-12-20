@@ -1,0 +1,40 @@
+<div style="float:right;">
+        <a href="/logout">
+    
+                Logout
+            
+        </a>
+    </div>
+
+    <div style="float:right;">
+            <a href="/bright_ideas">
+        
+                    Bright Ideas
+                
+            </a>
+        </div>
+
+
+<br>
+<div>@if(@ViewBag.random != null)
+{
+    <p>Name: @ViewBag.random.CreatedBy.Name</p>
+    <p>Alias: @ViewBag.random.CreatedBy.Alias</p>
+    <p>Email: @ViewBag.random.CreatedBy.Email</p>
+}
+
+</div>
+<br><br>
+<div>
+@if(ViewBag.Ideas != null)
+{
+  
+    <p>Total Number of Posts: @ViewBag.Ideas.Count</p>
+
+}
+
+@if(@ViewBag.Likelists != null)
+{
+    <p>Total Number of Likes: @ViewBag.Likelists.Count</p>
+}
+</div>

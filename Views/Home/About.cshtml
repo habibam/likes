@@ -1,0 +1,79 @@
+@model loginregister.Models.Idea
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div>
+        <h3>Hi @ViewBag.User.Name! </h3>
+        <div style="float:right;">
+            <a href="logout">
+        
+                    Logout
+                
+            </a>
+        </div>
+    </div>
+
+    <form asp-controller="Idea" asp-action="addidea" method="post">
+
+        <span asp-validation-for="IdeaText"></span>
+
+        <input asp-for="IdeaText" placeholder="Post something witty here..." />
+
+        <input type="submit" value="Idea!">
+
+    </form>
+    <br>
+    <br>
+
+
+    <div>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                
+            </tr>
+            @if(ViewBag.Ideas != null) { @foreach(var idea in ViewBag.Ideas) {
+            <tr>
+                <td>
+                    <a href="users/@idea.CreatedBy.UserId">@idea.CreatedBy.Alias</a> says:</td>
+                <td>@idea.IdeaText
+                   
+                </td>
+                @if (@idea.CreatedById == @ViewBag.User.UserId) {
+                <td> </td>
+                <td>
+                    <a href="delete/@idea.IdeaId">Delete</a>
+                </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                        <p><a href="adduserlike/@idea.IdeaId">Like    </a>
+                        <sp><a href="bright_ideas/@idea.IdeaId">    @idea.Likes.Count people</a> like this</p>
+                </td>
+            </tr>
+
+            } }
+        </table>
+
+
+
+
+
+
+</body>
+
+</html>
